@@ -30,11 +30,12 @@ int main(){
         int poss;
         int size;
         while ( cards.size() >= k && op == 1){
-            op = 0;
+            op = 0; // Evita que entre en bucle infinito
             ordenar(cards, cards.size());
             count = 0;
             size = cards.size();
             poss = -1;
+            // Busca la posición de la carta que cumple k repeticiones
             for ( int i = 0; i < size; i++){
                 count = 0;
                 for (int j = i; j < size; j++){
@@ -48,7 +49,8 @@ int main(){
                     poss = i;
                 }
             }
-
+            // Procede a eliminar el intervalo donde se encuentran las k cartas
+            // Agrega k-1 cartas iguales a la primera
             if ( poss != -1){
                 cards.erase(cards.begin() + poss, cards.begin() + poss + k);
                 for ( int i = 0; i < k-1; i++){
