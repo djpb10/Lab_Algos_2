@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+/* Codigo para resolver el problema de 
+    A - Sasha and the Beautiful Array 08-05-24 */
 void ordenar( vector<int> &lista, int size);
 
 int main(void){
