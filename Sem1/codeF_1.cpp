@@ -2,6 +2,9 @@
 #include <vector>
 using namespace std;
 
+/* Codigo del problema A - Card Exchange 
+    de code forces 8-05-24 */
+
 void ordenar( vector<int> &lista, int size);
 
 int main(){
