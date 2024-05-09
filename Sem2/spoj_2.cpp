@@ -2,8 +2,10 @@
 #include <vector>
 #include <utility>
 using namespace std;
+/* Codigo para resolver el problema 
+    RK Sorting 08-05-24 */
 
-// codigo para ordenar un vector
+// Prototipo de función de ordenación
 int comprobar( vector<int> &v, int x, int poss);
 
 int main(void){
