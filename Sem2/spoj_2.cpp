@@ -28,6 +28,11 @@ int main(void){
     for ( int i = 0; i < num; i++){
 
         if (comprobar( secuencia, secuencia[i], i) == 0){
+            /* Verifica que no haya tomado ya el número
+                Si no está cuenta las repeticiones y crea el 
+                par ordenado, la primera coordenada con el número
+                y la segunda con el número de repeticiones */
+            
             par.first = secuencia[i];
             count = 0;
             for ( int j = i; j < num; j++){
@@ -40,6 +45,10 @@ int main(void){
         }
     }
     pair<int, int> temp;
+    /* Reordena la lista de pares de acuerdo con el número de repeticiones
+        de cada número, mayor número de repeticiones lo coloca al principio
+        de la lista, números iguales no realiza cambios */
+    
     for ( int i = 0; i < pares.size(); i++){
         for (int j = i +1; j < pares.size(); j++){
             if ( pares[j].second > pares[i].second){
