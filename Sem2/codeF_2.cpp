@@ -6,6 +6,9 @@ using namespace std;
 void ordenar( vector<int> &lista, int size);
 
 int main(void){
+    /* Recibe los elementos de un arreglo y los ordena
+        Luego, resta los elementos a_i - a_(i-1) sumando 
+        todos estos resultados*/
 
     int tests;
     int n;
