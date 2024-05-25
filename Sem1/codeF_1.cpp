@@ -8,6 +8,10 @@ using namespace std;
 void ordenar( vector<int> &lista, int size);
 
 int main(){
+    /* Primeramente determina que carta cumple con la condición del juego, tener k apariciones
+        en el arreglo, luego elimina cada una de las apariciones de esa carta y las reemplaza con 
+        (k-1) cartas que en mi caso decidí que fuera la primera carta del arreglo para que en la siguiente vuelta 
+        del bucle eleminara esa misma carta */
 
     int temp;
     int test;
