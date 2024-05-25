@@ -9,6 +9,13 @@ using namespace std;
 int comprobar( vector<int> &v, int x, int poss);
 
 int main(void){
+    /* Luego de almacenados los números el programa itera sobre el vector para determinar el numero de apariciones.
+        Almacena el número como primera coordenada en un vector de pares ordenados, pero solo en su primera aprición;
+        la segunda coordenada será el número de veces que este se encuentra en vector inicial. Luego, itera sobre las 
+        segundas coordenadas de los pares de este nuevo vector para determinar cual tiene más repeticiones, una vez
+        determina cual tiene mayor lo coloca al inicio del vector o antes del menor inmediato; en el caso de ser iguales
+        no hace nada para cumplir con el orden de aparición de los elementos. Finalmente, imprime las primeras coordenadas
+        tantas veces como la segunda coordenada indique en el mismo orden en que se encuentran. */
     
     int count;
     int num;
