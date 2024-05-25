@@ -2,6 +2,8 @@
 #include <vector>
 #include <math.h>
 using namespace std;
+/* Código para resolver el problema de
+    AGGRCOW - Aggressive cows 16-05-24*/
 
 // Prototipos
 void insertion_sort( vector<int> &arreglo, int n);
