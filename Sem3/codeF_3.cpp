@@ -5,7 +5,7 @@
 using namespace std;
 
 
-
+//Prototipos
 void selection_sort( vector<pair<long long, int>> &arreglo, int n);
 void separacion( vector<pair<long long, int>> &arreglo, vector<pair<long long, int>> &part1, vector<pair<long long, int>> &part2);
 void merge( vector<pair<long long, int>> &arreglo, vector<pair<long long, int>> &part1, vector<pair<long long, int>> part2);
@@ -35,6 +35,11 @@ int main(){
         int k = 0;
         long long temp;
         for ( int i = 0; i < n; i++){
+            /* Lo que se encuentra comentado más abajo del "if" era la primera versión del código que había escrito, 
+                diferente al que vimos en clase; no pude usar esa forma porque el código era muy lento,
+                pensaba que era merge_sort pero era cuestión de ese condicional (lo envíe como 8 veces).
+                En verdad no veo muy bien porque mejora el tiempo de ejecución y bueno lo pongo por 
+                acá para consultarte para salir de dudas*/
             if ( i == k){
                 score += poss[i].first;
                 k++;
@@ -59,8 +64,13 @@ int main(){
     return 0;
 }
 
-
+// Versión de merge_sort
 void merge_sort( vector<pair<long long, int>> &arreglo, int n){
+    /* Si el vector es lo suficientemente pequeño lo ordena con el procedimiento
+        "selection_sort".
+        En caso contrario, separa el vector original en dos mitades no necesariamente iguales 
+        para luego volver a llamarse a sí mismo. Finalmente llama al procedimiento
+        "merge" que las vuelve a unir de forma ordenada en el vector original*/
     vector<pair<long long, int>> part1, part2;
 
     if ( arreglo.size() <= 4) selection_sort(arreglo, arreglo.size());
@@ -73,6 +83,8 @@ void merge_sort( vector<pair<long long, int>> &arreglo, int n){
 }
 
 void merge( vector<pair<long long, int>> &arreglo, vector<pair<long long, int>> &part1, vector<pair<long long, int>> part2){
+    /* Recibe el vector y sus dos mitades que se supone están ordenadas.
+        Itera sobre ambas asignando los elementos en orden en el vector original*/
     int i = 0, j = 0;
     pair<long long, int> centinela;
 
@@ -96,6 +108,8 @@ void merge( vector<pair<long long, int>> &arreglo, vector<pair<long long, int>> 
 
 }
 void separacion( vector<pair<long long, int>> &arreglo, vector<pair<long long, int>> &part1, vector<pair<long long, int>> &part2){
+    /* Asigna los elementos del vector en dos nuevos vectores que poseen respectivamente la 
+        mitad de sus elementos*/
     int mitad = arreglo.size() / 2;
 
     for (int i = 0; i < mitad ; i++){
