@@ -11,6 +11,11 @@ void merge_sort( vector<int> &arreglo, int n);
 bool comprobar( vector<int> &arreglo, int distance, int C);
 
 int main(void){
+    /* Almacena cada puesto donde es posible colocar una vaca y ordena este vector
+        de forma ascendente. Luego, aplica el concepto de busqueda binaria para
+        iterar sobre el vector de modo que usa el mismo número de cada puesto para
+        comprobar si efectivamente es posible asignar las vacas con esa distancia
+        que finalmente prueba ser la mayor de las menores posibles (el infimo de ellas) */
     int tests;
     int C;
     int N;
@@ -26,6 +31,7 @@ int main(void){
             cin >> temp;
             puestos.push_back(temp);
         }
+        
         // Acomoda los elementos de forma ascendente
         merge_sort( puestos, N);
         int der = puestos[N-1], izq = puestos[0];
@@ -43,9 +49,11 @@ int main(void){
     return 0;
 }
 
-/* Funcion que comprueba si con la distancia se pueden colocar las 
-    vacas en las posiciones que hay disponibles en el arreglo*/
+
 bool comprobar( vector<int> &arreglo, int distance, int C){
+    /* Funcion que comprueba si con la distancia se pueden colocar las 
+    vacas en las posiciones que hay disponibles en el arreglo*/
+    
     int cows = 1;
     int anterior = arreglo[0];
     for ( int i = 1; i < arreglo.size(); i++){
@@ -61,6 +69,11 @@ bool comprobar( vector<int> &arreglo, int distance, int C){
 
 /* Funciones que componen a merge-sort para sortear los elemenetos*/
 void merge_sort( vector<int> &arreglo, int n){
+    /* Si el vector es lo suficientemente pequeño lo ordena con el procedimiento
+        "selection_sort".
+        En caso contrario, separa el vector original en dos mitades no necesariamente iguales 
+        para luego volver a llamarse a sí mismo. Finalmente llama al procedimiento
+        "merge" que las vuelve a unir de forma ordenada en el vector original*/
     vector<int> part1, part2;
 
     if ( arreglo.size() <= 2) insertion_sort(arreglo, arreglo.size());
@@ -73,6 +86,8 @@ void merge_sort( vector<int> &arreglo, int n){
 }
 
 void merge( vector<int> &arreglo, vector<int> &part1, vector<int> part2){
+    /* Recibe el vector y sus dos mitades que se supone están ordenadas.
+        Itera sobre ambas asignando los elementos en orden en el vector original*/
     int i = 0, j = 0;
     int centinela = pow(10,9);
     part1.push_back(centinela);
@@ -91,6 +106,8 @@ void merge( vector<int> &arreglo, vector<int> &part1, vector<int> part2){
 
 }
 void separacion( vector<int> &arreglo, vector<int> &part1, vector<int> &part2){
+    /* Asigna los elementos del vector en dos nuevos vectores que poseen respectivamente la 
+        mitad de sus elementos*/
     int mitad = arreglo.size() / 2;
 
     for (int i = 0; i < mitad ; i++){
@@ -103,6 +120,7 @@ void separacion( vector<int> &arreglo, vector<int> &part1, vector<int> &part2){
 }
 
 void insertion_sort( vector<int> &arreglo, int n){
+    // En realidad se debería llamar selection_sort pero se me pasó cambiarlo antes de mandarlo
     int temp;
     for ( int i = 0; i < n; i++){
         for ( int j = i+1; j < n; j++){
