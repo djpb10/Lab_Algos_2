@@ -3,7 +3,8 @@
 #include <vector>
 #include <utility>
 using namespace std;
-
+/* Código para resolver el problema de
+    B. Collecting Game 24-05-24*/
 
 //Prototipos
 void selection_sort( vector<pair<long long, int>> &arreglo, int n);
