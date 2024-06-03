@@ -60,7 +60,7 @@ vector<vector<uint64_t>> strassen( vector<vector<uint64_t>> &A, vector<vector<ui
                                  P_6,
                                  P_7;
 
-        // Multiplicaciones de strassen
+        // Sumas de strassen
         vector<vector<uint64_t>> S1(n/2, vector<uint64_t> (n/2)), S2(n/2, vector<uint64_t> (n/2)), 
         S3(n/2, vector<uint64_t> (n/2)), S4(n/2, vector<uint64_t> (n/2))
         , S5(n/2, vector<uint64_t> (n/2)), S6(n/2, vector<uint64_t> (n/2)), S7(n/2, vector<uint64_t> (n/2)), 
@@ -93,7 +93,7 @@ vector<vector<uint64_t>> strassen( vector<vector<uint64_t>> &A, vector<vector<ui
                 S10[i][j] = B[i][j] + B[i][j + n/2];
             }
         }
-
+        // Multiplicaciones de Strassen
         P_1 = strassen( A_11, S1, n/2);
         P_2 = strassen( S2, B_22, n/2);
         P_3 = strassen( S3, B_11, n/2);
